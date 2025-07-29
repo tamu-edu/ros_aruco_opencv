@@ -1,6 +1,6 @@
 /**:
   ros__parameters:
-    cam_base_topic: camera/image_raw
+    cam_base_topic: /image_raw
     output_frame: ''
 
     marker_dict: 4X4_50
@@ -13,7 +13,7 @@
       depth: 1
 
     publish_tf: true
-    marker_size: 0.0742
+    marker_size: 0.15
 
     # Dynamically reconfigurable Detector parameters
     # https://docs.opencv.org/4.2.0/d5/dae/tutorial_aruco_detection.html
@@ -22,7 +22,7 @@
       adaptiveThreshWinSizeMin: 3
 
       # maximum window size for adaptive thresholding before finding contours 
-      adaptiveThreshWinSizeMax: 23
+      adaptiveThreshWinSizeMax: 18 #Previously 23
 
       # increments from adaptiveThreshWinSizeMin to adaptiveThreshWinSizeMax during the thresholding
       adaptiveThreshWinSizeStep: 10
@@ -74,13 +74,14 @@
       # error correction rate respect to the maximun error correction capability for each dictionary
       errorCorrectionRate: 0.6
 
-      cornerRefinementMethod: 2 # 0 - None, 1 - Subpix, 2 - Contour
+      #Previously set to 2 - Contour
+      cornerRefinementMethod: 1 # 0 - None, 1 - Subpix, 2 - Contour
 
       # maximum window size for the corner refinement process (in pixels)
       cornerRefinementWinSize: 5
 
       # maximum number of iterations for stop criteria of the corner refinement process
-      cornerRefinementMaxIterations: 30
+      cornerRefinementMaxIterations: 20 #previously 30
 
       # minimum error for the stop cristeria of the corner refinement process
       cornerRefinementMinAccuracy: 0.1
@@ -92,7 +93,7 @@
       # Proposed in the paper:
       # Romero-Ramirez et al: Speeded up detection of squared fiducial markers (2018)
       # https://www.researchgate.net/publication/325787310_Speeded_Up_Detection_of_Squared_Fiducial_Markers
-      useAruco3Detection: false
+      useAruco3Detection: true #previously false
 
       # (required OpenCV 4.6.0+) minimum side length of a marker in the canonical image. Latter is the binarized image in which contours are searched
       minSideLengthCanonicalImg: 32
